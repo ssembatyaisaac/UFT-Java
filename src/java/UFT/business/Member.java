@@ -1,8 +1,10 @@
 package UFT.business;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 
-//import java.util.*;
 
 /**
  * 
@@ -15,79 +17,69 @@ public class Member extends Person {
      *
      */
     private String memberID;
-    private String recommenderID;
-    private String enrollerAgentID;
-    private String districtName;
-    private int numberOfIntroductions;
+    private Member recommendingMember;
+    private Agent enrollerAgent;
+    private District district;
+    private List<Member> introducedMembers;
 
     public Member() {
         super();
         this.memberID = "None";
-        this.recommenderID = "None";
-        this.enrollerAgentID = "None";
-        this.districtName = "No District";
-        this.numberOfIntroductions = 0;
+        this.recommendingMember = new Member();
+        this.enrollerAgent = new Agent();
+        this.district = new District();
+        this.introducedMembers = new ArrayList<Member>();
     }
 
     public Member(String fName, String lName, String gender, String telephone1,
     String telephone2, String emailAddress, String dateOfBirth,
-    String memberID, String recommenderID, String enrollerAgentID, String districtName) {
+    String memberID, Member recommender, Agent enrollerAgent, District district, List<Member> introductions) {
         super(fName, lName, gender, telephone1, telephone2, emailAddress, dateOfBirth);
         this.memberID = memberID;
-        this.recommenderID = recommenderID;
-        this.enrollerAgentID =  enrollerAgentID;
-        this.districtName = districtName;
-        this.numberOfIntroductions = 0;
+        this.recommendingMember = recommender;
+        this.enrollerAgent =  enrollerAgent;
+        this.district = district;
+        this.introducedMembers = introductions;
     }
-
-    
+   
     public String getMemberID() {
         return this.memberID;
     }
-
-    
+   
     public void setMemberID(String memberID) {
         this.memberID = memberID;
     }
 
-    
-    public String getRecommenderID() {
-        return this.recommenderID;
+    public Member getRecommendingMember() {
+        return this.recommendingMember;
     }
 
-    
-    public void setRecommenderID(String recommenderID) {
-        this.recommenderID = recommenderID;
+    public void setRecommendingMember(Member recommendingMember) {
+        this.recommendingMember = recommendingMember;
     }
 
-    
-    public String getEnrollerAgentID() {
-        return this.enrollerAgentID;
+    public Agent getEnrollerAgent() {
+        return this.enrollerAgent;
     }
 
-    
-    public void setEnrollerAgentID(String enrollerAgentID) {
-        this.enrollerAgentID = enrollerAgentID;
+    public void setEnrollerAgent(Agent enrollerAgent) {
+        this.enrollerAgent = enrollerAgent;
     }
 
-    
-    public String getDistrictName() {
-        return this.districtName;
+    public District getDistrict() {
+        return this.district;
     }
 
-    
-    public void setDistrictName(String districtName) {
-        this.districtName = districtName;
+    public void setDistrict(District district) {
+        this.district = district;
     }
 
-    
-    public int getNumberOfIntroductions() {
-        return this.numberOfIntroductions;
+    public List<Member> getIntroducedMembers() {
+        return this.introducedMembers;
     }
 
-    
-    public void setNumberOfIntroductions(int numberOfIntroductions) {
-        this.numberOfIntroductions = numberOfIntroductions;
+    public void setIntroducedMembers(List<Member> introducedMembers) {
+        this.introducedMembers = introducedMembers;
     }
-
+    
 }

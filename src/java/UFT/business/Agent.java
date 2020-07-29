@@ -1,5 +1,8 @@
 package UFT.business;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 
 //import java.util.*;
@@ -16,23 +19,24 @@ public class Agent extends Person {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private String agentID;
-    private String districtName;
-    private int numberOfEnrolled;
+    private District agentDistrict;
+    private List<Member> enrolledMembers;
     
     
     public Agent() {
         super();
         this.agentID = "None";
-        this.districtName = "No District";
-        this.numberOfEnrolled = 0;
+        this.agentDistrict = new District();
+        this.enrolledMembers = new ArrayList<Member>();
+
     }
 
     public Agent (String fName, String lName, String gender, String telephone1, String telephone2,
-    String emailAddress, String dateOfBirth, String agentID, String districtName, int enrolled) {
+    String emailAddress, String dateOfBirth, String agentID, District district, List<Member> enrolled) {
         super(fName, lName, gender, telephone1, telephone2, emailAddress, dateOfBirth);
         this.agentID = agentID;
-        this.districtName = districtName;
-        this.numberOfEnrolled = enrolled;
+        this.agentDistrict = district;
+        this.enrolledMembers = enrolled;
     }
 
     public String getAgentID() {
@@ -44,24 +48,21 @@ public class Agent extends Person {
         this.agentID = agentID;
     }
 
+    public District getAgentDistrict() {
+        return this.agentDistrict;
+    }
+
+    public void setAgentDistrict(District agentDistrict) {
+        this.agentDistrict = agentDistrict;
+    }
+
+    public List<Member> getEnrolledMembers() {
+        return this.enrolledMembers;
+    }
+
+    public void setEnrolledMembers(List<Member> enrolledMembers) {
+        this.enrolledMembers = enrolledMembers;
+    }
     
-    public String getDistrictName() {
-        return this.districtName;
-    }
-
-
-    public void setDistrictName(String districtName) {
-        this.districtName = districtName;
-    }
-
-
-    public int getNumberOfEnrolled() {
-        return this.numberOfEnrolled;
-    }
-
-
-    public void setNumberOfEnrolled(int numberOfEnrolled) {
-        this.numberOfEnrolled = numberOfEnrolled;
-    }
 
 }
