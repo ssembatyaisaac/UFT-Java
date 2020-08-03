@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UFT.data;
 
 import javax.persistence.EntityManager;
@@ -10,30 +5,25 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-import UFT.business.Agent;
+import UFT.business.Admin;
 
-/**
- *
- * @author ducky
- */
-public class AgentDB {
-        public static Agent selectAgentById(String agentID) {
+public class AdminDB {
+        public static Admin selectAdminById(String adminID) {
                 EntityManager em = DBUtil.getEmFactory().createEntityManager();
                 try {
-                        Agent agent = em.find(Agent.class, agentID);
-                        return agent;
+                        Admin admin = em.find(Admin.class, adminID);
+                        return admin;
                 } finally {
                         em.close();
                 }
         }
 
-
-        public static void insertAgent(Agent agent) {
+        public static void insertAdmin(Admin admin) {
                 EntityManager em = DBUtil.getEmFactory().createEntityManager();
                 EntityTransaction trans = em.getTransaction();
                 try {
                         trans.begin();
-                        em.persist(agent);
+                        em.persist(admin);
                         trans.commit();
                 } catch (Exception ex) {
                         trans.rollback();
@@ -42,14 +32,13 @@ public class AgentDB {
                 }
         }
 
-
-        public static Agent selectAgent (String email) {
+        public static Admin selectAdmin (String email) {
                 EntityManager em = DBUtil.getEmFactory().createEntityManager();
-                String qString = "SELECT a from Agent a "+
+                String qString = "SELECT a from Admin a "+
                                 "WHERE a.emailAddress = :email";
-                TypedQuery<Agent> q = em.createQuery(qString, Agent.class);
+                TypedQuery<Admin> q = em.createQuery(qString, Admin.class);
                 q.setParameter("email", email);
-                Agent result = null;
+                Admin result = null;
                 try {
                         result = q.getSingleResult();
                 } catch (NoResultException ex) {
@@ -57,14 +46,11 @@ public class AgentDB {
                 } finally {
                         em.close();
                 }
-
                 return result;
         }
 
-
-        public static boolean agentExists (String email) {
-                Agent a = selectAgent(email);
+        public static boolean adminExists (String email) {
+                Admin a = selectAdmin(email);
                 return a != null;
         }
-    
 }

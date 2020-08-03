@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/data/MemberDB.java</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/web/admin/district.jsp</file>
             <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/controller/agentController.java</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/web/WEB-INF/web.xml</file>
             <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/data/DBUtil.java</file>
-            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/business/Agent.java</file>
-            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/data/PersonDB.java</file>
-            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/conf/persistence.xml</file>
-            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/business/Member.java</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/business/Person.java</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/web/agent/display.jsp</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/src/java/UFT/controller/adminController.java</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/web/admin/index.html</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/web/district/displaydistrict.jsp</file>
+            <file>file:/home/ducky/NetBeansProjects/UFT%20Political%20Party/web/admin/register.jsp</file>
         </group>
     </open-files>
 </project-private>

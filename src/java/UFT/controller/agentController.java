@@ -10,7 +10,10 @@ import UFT.data.MemberDB;
 import UFT.data.PersonDB;
 
 import java.io.IOException;
+
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,13 +22,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ducky
  */
+@WebServlet("/agentController")
 public class agentController extends HttpServlet {
-        
 
-
-	@Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String requestURI = request.getRequestURI();
         String url = "/agent";
@@ -33,14 +41,12 @@ public class agentController extends HttpServlet {
         if (requestURI.endsWith("/register")) {
             url = registerMember(request, response);
         }
-        
+
         getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 
-
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String requestURI = request.getRequestURI();
         String url = "/";
@@ -48,14 +54,12 @@ public class agentController extends HttpServlet {
         if (requestURI.contains("/register")) {
             url = registerMember(request, response);
         }
-        
+
         getServletContext().getRequestDispatcher(url).forward(request, response);
 
     }
 
-
-    private String registerMember(HttpServletRequest request, HttpServletResponse response)
-    throws IOException {
+    private String registerMember(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fName = request.getParameter("fName");
         String lName = request.getParameter("lName");
         String gender = request.getParameter("gender");
@@ -63,6 +67,7 @@ public class agentController extends HttpServlet {
         String telephone1 = request.getParameter("telephone1");
         String telephone2 = request.getParameter("telephone2");
         String emailAddress = request.getParameter("emailAddress");
+
         
         Member member = new Member();
         member.setFName(fName);

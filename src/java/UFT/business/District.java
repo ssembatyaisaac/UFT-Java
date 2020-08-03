@@ -1,43 +1,40 @@
 package UFT.business;
 
+import java.util.ArrayList;
 import java.util.List;
 
-//import java.util.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-/**
- * 
- */
+
+@Entity
 public class District {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long districtID;
+    private String districtName;
     
-    public String districtID;
-    public String districtName;
-    public List<Member> members;
-    public List<Agent> agents;
-    
-    
-    public District() {
-        this.districtID = "None";
-        this.districtName = "No District";
-        
-    }
-    
-    public District(String districtID, String districtName){
-        this.districtID = districtID;
-        this.districtName = districtName;
-        
-    }
+    @OneToMany(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+    private List<Member> members;
 
-    public String getDistrictID() {
+    @OneToMany(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+    private List<Agent> agents;
+    
+
+    public long getDistrictID() {
         return this.districtID;
     }
-
-    
-    public void setDistrictID(String districtID) {
+   
+    public void setDistrictID(long districtID) {
         this.districtID = districtID;
     }
-
-    
+   
     public String getDistrictName() {
         return this.districtName;
     }

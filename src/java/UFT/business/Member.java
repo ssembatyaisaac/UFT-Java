@@ -1,9 +1,12 @@
 package UFT.business;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -17,30 +20,18 @@ public class Member extends Person {
      *
      */
     private String memberID;
+
+    @ManyToOne
     private Member recommendingMember;
+
+    @ManyToOne
     private Agent enrollerAgent;
+
+    @ManyToOne
     private District district;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Member> introducedMembers;
-
-    public Member() {
-        super();
-        this.memberID = "None";
-        this.recommendingMember = new Member();
-        this.enrollerAgent = new Agent();
-        this.district = new District();
-        this.introducedMembers = new ArrayList<Member>();
-    }
-
-    public Member(String fName, String lName, String gender, String telephone1,
-    String telephone2, String emailAddress, String dateOfBirth,
-    String memberID, Member recommender, Agent enrollerAgent, District district, List<Member> introductions) {
-        super(fName, lName, gender, telephone1, telephone2, emailAddress, dateOfBirth);
-        this.memberID = memberID;
-        this.recommendingMember = recommender;
-        this.enrollerAgent =  enrollerAgent;
-        this.district = district;
-        this.introducedMembers = introductions;
-    }
    
     public String getMemberID() {
         return this.memberID;

@@ -7,9 +7,9 @@
 </head>
 <body>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <form action="<c:url value='/agentController/register'/>" method="post">
+    <form action="<c:url value='/adminController/register'/>" method="post">
               <table>
-                     <p>Member Registration</p>
+                     <h1>Agent Registration</h1>
                      <tr>
                             <td><label>First Name: </label></td>
                             <td><input type="text" name="fName" id="" required></td>
@@ -43,6 +43,18 @@
                             <td><input type="submit" name="Register" id=""></td>
                      </tr>
               </table>
-       </form>        
+       </form>     
 </body>
+<script>
+       function check_pass() {
+              if (document.getElementById('password').value == 
+              document.getElementById('confirm_password').value) {
+                     document.getElementById('message').style.color = 'green';
+                     document.getElementById('message').innerHTML = 'matching';
+              } else {
+                     document.getElementById('message').style.color = 'red';
+                     document.getElementById('message').innerHTML = 'not matching';
+              }
+       }
+</script>
 </html>

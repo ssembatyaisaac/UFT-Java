@@ -1,11 +1,13 @@
 package UFT.business;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-//import java.util.*;
 
 /**
  * 
@@ -13,36 +15,22 @@ import javax.persistence.Entity;
 @Entity
 public class Agent extends Person {
 
-    /**
-     *
-     */
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+
     private String agentID;
-    private District agentDistrict;
+    
+    @ManyToOne
+    private District agentDistrict; 
+    
+    @OneToMany(fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
     private List<Member> enrolledMembers;
-    
-    
-    public Agent() {
-        super();
-        this.agentID = "None";
-        this.agentDistrict = new District();
-        this.enrolledMembers = new ArrayList<Member>();
 
-    }
+    @OneToMany(fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+    private List<Agent> agentHead;
 
-    public Agent (String fName, String lName, String gender, String telephone1, String telephone2,
-    String emailAddress, String dateOfBirth, String agentID, District district, List<Member> enrolled) {
-        super(fName, lName, gender, telephone1, telephone2, emailAddress, dateOfBirth);
-        this.agentID = agentID;
-        this.agentDistrict = district;
-        this.enrolledMembers = enrolled;
-    }
 
     public String getAgentID() {
         return this.agentID;
     }
-
 
     public void setAgentID(String agentID) {
         this.agentID = agentID;
@@ -63,6 +51,14 @@ public class Agent extends Person {
     public void setEnrolledMembers(List<Member> enrolledMembers) {
         this.enrolledMembers = enrolledMembers;
     }
-    
+
+    public List<Agent> getAgentHead() {
+        return this.agentHead;
+    }
+
+    public void setAgentHead(List<Agent> agentHead) {
+        this.agentHead = agentHead;
+    }
+
 
 }

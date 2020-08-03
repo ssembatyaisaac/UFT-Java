@@ -1,7 +1,6 @@
 package UFT.business;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,27 +29,6 @@ public class Person implements Serializable {
     private String telephone2;
     private String emailAddress;
     private String dateOfBirth;
-
-    public Person() {
-        firstName = "None";
-        lastName = "None";
-        gender = "None";
-        telephone1 = "None";
-        telephone2 = "None";
-        emailAddress = "None";
-        dateOfBirth = "None";
-    }
-
-    public Person(String fName, String lName, String gender, String telephone1, String telephone2,
-    String emailAddress, String dateOfBirth) {
-        this.firstName = fName;
-        this.lastName = lName;
-        this.gender = gender;
-        this.telephone1 = telephone1;
-        this.telephone2 = telephone2;
-        this.emailAddress = emailAddress;
-        this.dateOfBirth = dateOfBirth;
-    }
 
     public long getPersonId() {
         return this.personId;
@@ -107,6 +85,7 @@ public class Person implements Serializable {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
+
 
     public String getDateOfBirth() {
         return this.dateOfBirth;
