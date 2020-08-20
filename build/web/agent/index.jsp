@@ -11,8 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
      <body>
-        <p>This is the agents index</p><br>
-        <p><a href="#">Agent Info</a></p>
-        <p><a href="register.jsp">Register Members</a></p>
+         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <h1>${message}</h1><br>
+        <a href="<c:url value="/agentController/agentInfo"/>">Agent Info</a><br>
+        <a href="<c:url value="/agentController/register"/>">Register Members</a><br>
+        <a href="<c:url value="/agentController/login"/>">Login</a>
     </body>
 </html>

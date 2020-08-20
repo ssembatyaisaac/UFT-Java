@@ -39,22 +39,14 @@
                             <td><input type="email" name="emailAddress" id="" required></td>
                      </tr>
                      <tr>
+                            <td><label>Password: </label></td>
+                            <td><input type="password" name="password" id="" required></td>
+                     </tr>
+                     <tr>
                             <td></td>
                             <td><input type="submit" name="Register" id=""></td>
                      </tr>
               </table>
        </form>     
 </body>
-<script>
-       function check_pass() {
-              if (document.getElementById('password').value == 
-              document.getElementById('confirm_password').value) {
-                     document.getElementById('message').style.color = 'green';
-                     document.getElementById('message').innerHTML = 'matching';
-              } else {
-                     document.getElementById('message').style.color = 'red';
-                     document.getElementById('message').innerHTML = 'not matching';
-              }
-       }
-</script>
 </html>

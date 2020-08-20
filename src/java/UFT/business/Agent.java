@@ -27,6 +27,8 @@ public class Agent extends Person {
     @OneToMany(fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
     private List<Agent> agentHead;
 
+    private String password;
+
 
     public String getAgentID() {
         return this.agentID;
@@ -60,5 +62,11 @@ public class Agent extends Person {
         this.agentHead = agentHead;
     }
 
+    public String getPassword() {
+        return this.password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

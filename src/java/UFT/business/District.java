@@ -1,6 +1,6 @@
 package UFT.business;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class District {
+public class District implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

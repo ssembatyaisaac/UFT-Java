@@ -21,5 +21,6 @@
         <p>${agent.telephone1}</p>
         <p>${agent.telephone2}</p>
         <p>${agent.emailAddress}</p>
+        <p>${agent.agentDistrict.districtName}</p>
     </body>
 </html>

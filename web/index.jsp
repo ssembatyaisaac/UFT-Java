@@ -12,9 +12,11 @@ and open the template in the editor.
     </head>
     <body>
         <div>
+            <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <h1>United Front For Transformation</h1>
-            <a href="adminController">Login As Admin</a><br>
-            <a href="agentController">Login As Agent</a>
+            <a href="<c:url value="adminController/"/>">Login As Admin</a><br>
+            <a href="<c:url value="agentController/"/>">Login As Agent</a>
+            <p>My name is Isaac</p>
         </div>
     </body>
 </html>

@@ -1,0 +1,13 @@
+CREATE TABLE Admin (PersonpersonId int(10) NOT NULL, adminId varchar(255), password varchar(255));
+CREATE TABLE Agent (PersonpersonId int(10) NOT NULL, password varchar(255), agentId varchar(255), DistrictdistrictId int(10) NOT NULL);
+CREATE TABLE District (districtId int(10) NOT NULL AUTO_INCREMENT, districtName varchar(255), PRIMARY KEY (districtId));
+CREATE TABLE Member (PersonpersonId int(10) NOT NULL, memberId varchar(255), DistrictdistrictId int(10) NOT NULL);
+CREATE TABLE Person (personId int(10) NOT NULL AUTO_INCREMENT, firstName varchar(255), lastName varchar(255), gender varchar(255), telephone1 varchar(255), telephone2 varchar(255), emailAddress varchar(255), dateOfBirth date, PRIMARY KEY (personId));
+ALTER TABLE Admin ADD CONSTRAINT FKAdmin539832 FOREIGN KEY (PersonpersonId) REFERENCES Person (personId);
+ALTER TABLE Agent ADD CONSTRAINT FKAgent621678 FOREIGN KEY (PersonpersonId) REFERENCES Person (personId);
+ALTER TABLE Member ADD CONSTRAINT FKMember480709 FOREIGN KEY (PersonpersonId) REFERENCES Person (personId);
+ALTER TABLE Member ADD CONSTRAINT agent_enrolls FOREIGN KEY () REFERENCES Agent ();
+ALTER TABLE Agent ADD CONSTRAINT has_agents FOREIGN KEY (DistrictdistrictId) REFERENCES District (districtId);
+ALTER TABLE Member ADD CONSTRAINT has_members FOREIGN KEY (DistrictdistrictId) REFERENCES District (districtId);
+ALTER TABLE Agent ADD CONSTRAINT heads FOREIGN KEY () REFERENCES Agent ();
+ALTER TABLE Member ADD CONSTRAINT recommends FOREIGN KEY () REFERENCES Member ();
